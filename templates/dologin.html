@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Care from COVID-19</title>
+</head>
+<body>
+    <header class="text-gray-700 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-white-500 rounded-full" viewBox="0 0 24 24">
+                <image href="/static/favicon.png" x="0" y="0" height="24px" width="24px"/>
+            </svg>
+            <span class="ml-3 text-xl">Care from COVID-19</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-gray-900" href="/">Home</a>
+            <a class="mr-5 hover:text-gray-900" href="/signup">Sign up</a>
+            <a class="mr-5 hover:text-gray-900" href="/contact_us">Contact us</a>
+            <a class="mr-5 hover:text-orange-500" href="/logout">Logout</a>
+          </nav>
+          
+        </div>
+      </header>
+    <section class="text-gray-700 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+          <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+            <h1 class="title-font font-medium text-3xl text-gray-900">Login to continue</h1>
+            <p class="leading-relaxed mt-4">Enter correct credentials for utilizing features of the website</p>
+            <a href = "/forgotpassword" style = "color:red">Forgot Password?</a>
+          </div>
+          <div class="lg:w-2/6 md:w-1/2 bg-orange-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <h2 class="text-gray-900 text-lg font-medium title-font mb-5" align = "center">Enter your credentials</h2>
+            <form action="{{ url_for('dologin') }}" method="post" autocomplete="off" align = "center">
+              <div class="msg">{{ msg }}</div>
+              <div class=" bg-orange-200 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email" id="email" name="email" required>
+              </div>
+              <div class=" bg-orange-200 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4" placeholder="Password" type="password" id="password" name="password" required>
+              </div>
+            <button class="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
+            </form>
+            <p class="text-xs text-gray-500 mt-3" align = "center">We ensure secured transaction of the data</p>
+          </div>
+        </div>
+      </section>
+
+      
+</body>
+</html>

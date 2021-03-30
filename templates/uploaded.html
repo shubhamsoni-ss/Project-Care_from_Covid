@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=V7A7VyEkWrwAy3oWbLBi9N5mWPX3UgTcwnACT-Qx1PtEOYx9Ry8UbpOSjoH2xGgP7-b_OauHq3UQUIZA9u84ygHi-oSNtJY0IcZ8-PLrYjhBDb-gS3F5UVcvTjhrqsbcRXUiJr6qzF1i8dhvdTy7gprOfsZIww4MG7AQw2wyBjXS4sMn7wK59xGWWiC0bwJwyEl7ISeF2CQz7oU_zhDIUEfEjzocsH-foFwYcuViM5vkjK7coiOsxdU4LYfZm14KdW0MFGtLWmOOD21ZurAsd8-nL1Lt_5TeSXnUM_po9nDw9ApC4do4L7iHFySuIbgBfqS5kQyUBMWonkjKQVNQ-5feHbq3TT8HNjIP7B0DLAja4ROPaBuWQ9GoEq7EOsJdg7MuwGqytZuPJpq7KeyDHslxYyp_AWRmYx2tzWbkYzqnwANIoF-LnE6hGcnQymHiDkmNdCY1lIJjk5v_qmXOTckH_EmeEtolqlaI4v6y8Kc7duhOv285VdO0BOpddkF8fzCsY-Gam03v1Mh8btZv34WdRQfvvXf7bIjxVmt1v4nJfQneXWQxE221l_H3M-snspyqik4BImkvvLIzFbId8xjRuZp3rt9lQhQKoCuo_Ely-zPl4R2MiPGf3LqmyyfEF4jX1qcOgnMA2sSgSbxZX9TDeevAiXX3-h0AXyDIOyUyWBjLQKW0dw5KKsz7wcje2i56KnCNa5oc7HOSaywCx0bNiENnyaW0_dxvl8zop2qhKd6bCWEBYzgJ-IhKVMhSVW0nwz1qo0Jghs2pi_uH3eq3Qz7czKL5AXhzR3RM6fPfchhUuufglITsIwPHjuogJwREF64l9zNUtUQqw6wsVAO3filZFc_C8SoxaxZnzM9RsQ1dJZNoQzp3Y3A94ADsr88q-6jVcB6Lok8TVe-nSWoYuYaxc5QemC2RClxA6kSWAes1AcaefgPA-1veumK9FtPOYIeCe5EdIRdjRd2SCLVj85Cqjcxy4PyoPR35bK48AoMRzsw1CdbyBgOaVrmoQqadz9wgVOuQuIXeo5IacC7YYX6E-zfycEP81s1EaySgpNkN-oJN2_XrT7w7YsQiwJqnKPHpxoYRpY5iVwFvQqylgNG2v-2o5g2wQKXdwhvjpdfhvbUUUfOCQ4olWim8cipXVU57Vcmd4vomBqLc46zeZWVHryf6DGV7MXKJE5I4QZZlygUr7jl3qqFqx2v-u292MtLg29yXbmpJsQIn1g" nonce="46a4a54eb96823d211c875b09466a4a0" charset="UTF-8"></script><script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    <title>Care from COVID-19</title>
+</head>
+<body>
+
+    <header class="text-gray-700 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-white-500 rounded-full" viewBox="0 0 24 24">
+                <image href="/static/favicon.png" x="0" y="0" height="24px" width="24px"/>
+            </svg>
+            <span class="ml-3 text-xl">Care from COVID-19</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-gray-900" href="/">Home</a>
+            <a class="mr-5 hover:text-gray-900" href="/signup">Sign up</a>
+            <a class="mr-5 hover:text-gray-900" href="/login">Sign in</a>
+            <a class="mr-5 hover:text-gray-900" href="/contact_us">Contact us</a>
+          </nav>
+          
+        </div>
+      </header>
+    <section class="text-gray-700 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap -m-4 text-center">
+            <div class="p-4 sm:w-1/3 w-1/3">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-green-500">{{GreenSocialDistancingIndex}}%</h2>
+              <p class="leading-relaxed">Safe Index</p>
+            </div>
+
+            <div class="p-4 sm:w-1/3 w-1/3">
+                <h2 class="title-font font-medium sm:text-4xl text-3xl text-red-500">{{RedSocialDistancingIndex}}%</h2>
+                <p class="leading-relaxed">High Risk Index</p>
+              </div>
+
+            <div class="p-4 sm:w-1/3 w-1/3">
+                <h2 class="title-font font-medium sm:text-4xl text-3xl text-orange-500">{{OrangeSocialDistancingIndex}}%</h2>
+                <p class="leading-relaxed">Low Risk Index</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <center>
+        <h1 class="title-font font-medium sm:text-4xl text-3xl text-blue-500">Mean Total People</h1>
+        <h6 class="title-font font-small sm:text-2xl text-2xl text-blue-500">X-axis=Frames, Y-axis=People</h6>
+        <canvas id="chart1" width="1200" height="400"></canvas>
+        <script>
+    
+          // bar chart data
+          var barData = {
+            labels : [
+              {% for item in labels %}
+                "{{ item }}",
+              {% endfor %}
+            ],
+    
+            datasets : [{
+              fillColor: "rgba(151,187,205,0.2)",
+              strokeColor: "rgba(151,187,205,1)",
+              pointColor: "rgba(151,187,205,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(151,187,205,1)",
+              bezierCurve : false,
+              data : [
+          {% for item in totalvalues %}
+                  {{ item }},
+                {% endfor %}]
+              }
+      ]
+          }
+    
+          Chart.defaults.global.animationSteps = 50;
+          Chart.defaults.global.tooltipYPadding = 16;
+          Chart.defaults.global.tooltipCornerRadius = 0;
+          Chart.defaults.global.tooltipTitleFontStyle = "normal";
+          Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+          Chart.defaults.global.animationEasing = "easeOutBounce";
+          Chart.defaults.global.responsive = false;
+          Chart.defaults.global.scaleLineColor = "black";
+          Chart.defaults.global.scaleFontSize = 16;
+    
+          // get bar chart canvas
+          var mychart = document.getElementById("chart1").getContext("2d");
+    
+          steps = 10
+          max = {{ max }}
+          // draw bar chart
+          var LineChartDemo = new Chart(mychart).Line(barData, {
+            scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true,
+            bezierCurve: false,
+            minRotation:50
+          });
+    
+        </script>
+      </center>
+
+      <center>
+        <h1 class="title-font font-medium sm:text-4xl text-3xl text-green-500">Safe People</h1>
+        <h6 class="title-font font-small sm:text-2xl text-2xl text-green-500">X-axis=Frames, Y-axis=People</h6>
+        <canvas id="chart2" width="1200" height="400"></canvas>
+        <script>
+    
+          // bar chart data
+          var barData = {
+            labels : [
+              {% for item in labels %}
+                "{{ item }}",
+              {% endfor %}
+            ],
+    
+            datasets : [{
+              fillColor: "rgba(124,252,0,0.2)",
+              strokeColor: "rgba(124,252,0,1)",
+              pointColor: "rgba(124,252,0,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(124,252,0,1)",
+              bezierCurve : false,
+              data : [
+          {% for item in greenvalues %}
+                  {{ item }},
+                {% endfor %}]
+              }
+      ]
+			
+
+          }
+    
+          Chart.defaults.global.animationSteps = 50;
+          Chart.defaults.global.tooltipYPadding = 16;
+          Chart.defaults.global.tooltipCornerRadius = 0;
+          Chart.defaults.global.tooltipTitleFontStyle = "normal";
+          Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+          Chart.defaults.global.animationEasing = "easeOutBounce";
+          Chart.defaults.global.responsive = false;
+          Chart.defaults.global.scaleLineColor = "black";
+          Chart.defaults.global.scaleFontSize = 16;
+    
+          // get bar chart canvas
+          var mychart = document.getElementById("chart2").getContext("2d");
+    
+          steps = 10
+          max = {{ max }}
+          // draw bar chart
+          var LineChartDemo = new Chart(mychart).Line(barData, {
+            scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true,
+            bezierCurve: false,
+            minRotation:50,
+            
+          });
+    
+        </script>
+      </center>
+
+
+      <center>
+        <h1 class="title-font font-medium sm:text-4xl text-3xl text-red-500">High Risk</h1>
+          <h6 class="title-font font-small sm:text-2xl text-2xl text-red-500">X-axis=Frames, Y-axis=People</h6>
+        <canvas id="chart3" width="1200" height="400"></canvas>
+        <script>
+          
+    
+          // bar chart data
+          var barData = {
+            labels : [
+              {% for item in labels %}
+                "{{ item }}",
+              {% endfor %}
+            ],
+    
+            datasets : [{
+              fillColor: "rgba(255,0,0,0.2)",
+              strokeColor: "rgba(255,0,0,1)",
+              pointColor: "rgba(255,0,0,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(255,0,0,1)",
+              bezierCurve : false,
+              data : [
+          {% for item in redvalues %}
+                  {{ item }},
+                {% endfor %}]
+              }
+      ]
+          }
+    
+          Chart.defaults.global.animationSteps = 50;
+          Chart.defaults.global.tooltipYPadding = 16;
+          Chart.defaults.global.tooltipCornerRadius = 0;
+          Chart.defaults.global.tooltipTitleFontStyle = "normal";
+          Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+          Chart.defaults.global.animationEasing = "easeOutBounce";
+          Chart.defaults.global.responsive = false;
+          Chart.defaults.global.scaleLineColor = "black";
+          Chart.defaults.global.scaleFontSize = 16;
+    
+          // get bar chart canvas
+          var mychart = document.getElementById("chart3").getContext("2d");
+    
+          steps = 10
+          max = {{ max }}
+          // draw bar chart
+          var LineChartDemo = new Chart(mychart).Line(barData, {
+            scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true,
+            bezierCurve: false,
+            minRotation:50
+          });
+    
+        </script>
+      </center>
+
+</body>
+</html>

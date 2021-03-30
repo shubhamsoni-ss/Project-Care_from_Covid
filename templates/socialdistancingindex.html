@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Care from COVID-19</title>
+</head>
+<body>
+
+  <header class="text-gray-700 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-white-500 rounded-full" viewBox="0 0 24 24">
+            <image href="/static/favicon.png" x="0" y="0" height="24px" width="24px"/>
+        </svg>
+        <span class="ml-3 text-xl">Care from COVID-19</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-gray-900" href="/">Home</a>
+        <a class="mr-5 hover:text-orange-500" href="/signup">Sign up</a>
+        <a class="mr-5 hover:text-orange-500" href="/login">Sign in</a>
+        <a class="mr-5 hover:text-orange-500" href="/contact_us">Contact us</a>
+      </nav>
+      
+    </div>
+  </header>
+  <form action = "/uploader" method = "POST" enctype = "multipart/form-data" id="form1">
+    <section class="text-gray-700 body-font">
+        <div class="container px-5 py-20 mx-auto">
+          <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Social Distancing Index</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Help us to utilize our resources for detecting social distancing which is being followed by the people present at public/private places by uploading videos.</p>
+          </div>
+          <div class="flex lg:w-1/2 w-full sm:flex-row flex-col mx-auto px-8 sm:px-0 items-end">
+            <div class="relative sm:mr-4 mb-4 sm:mb-0 flex-grow w-full">
+                <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900 w-full">Upload video</h1>
+            </div>
+            <div class="relative sm:mr-4 mb-4 sm:mb-0 flex-grow w-full">
+             
+              <input type="file" id="file" name="file" value="file" accept=".mp4, .3gp"  class="overflow-hidden w-full bg-gray-100 rounded border border-gray-300 focus:border-orange-500 text-base outline-none text-gray-700 py-1 px-4 leading-8 transition-colors duration-200 ease-in-out">
+            
+            
+            </div>
+        </div>
+      </section>
+
+
+      <section class="text-gray-700 body-font relative">
+        <div class="container px-5 py-4 mx-auto">
+          <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2">
+              <div class="p-2 w-full">
+                 <button type="submit" id="form1" value="Submit" class="flex mx-auto text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-orange-600 rounded text-lg">Lets Go!</button>
+              </div>
+            </div>
+        </div>
+      </section>
+    </form>
+    
+
+</body>
+
+</html>

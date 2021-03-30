@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Care from COVID-19</title>
+    <!--<style>
+      table,th,td{
+        margin: 0 auto;
+        border:2px solid black ;
+        text-align:center;
+      }
+    </style>-->
+</head>
+<body>
+  <header class="text-gray-700 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-white-500 rounded-full" viewBox="0 0 24 24">
+            <image href="/static/favicon.png" x="0" y="0" height="24px" width="24px"/>
+        </svg>
+        <span class="ml-3 text-xl">Care from COVID-19</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-gray-900" href="/">Home</a>
+        <a class="mr-5 hover:text-gray-900" href="/dologin">Sign in</a>
+        <a class="mr-5 hover:text-gray-900" href="/contact_us">Contact us</a>
+        <a class="mr-5 hover:text-orange-500" href="/logout">Logout</a>
+      </nav> 
+    </div>
+  </header>
+    <section class = "items-center bg-orange-100">
+      <div class = "items-center">
+        <table style = "margin: 0 auto;border:2px solid black ;text-align:center;">
+          <tr  style = "text-align:center;height:50px;">
+          <th colspan = "4" style = "border:2px solid black; color:orangered;font-size: large;">RECORDS OF PREDICTED DISEASES</th>
+          </tr>
+          <tr>
+            <th style = "border:2px solid black ;text-align:center;">User_id</th>
+            <th style = "border:2px solid black ;text-align:center;">List of symptoms</th>
+            <th style = "border:2px solid black ;text-align:center;">Predicted Disease</th>
+            <th style = "border:2px solid black ;text-align:center;">Date and Time of prediction</th>
+          </tr>
+          {% for row in data %}
+          <tr>
+            {% for j in row %}
+            <td  style = "border:2px solid black ;text-align:center;">{{ j }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+        <br>
+        <hr style = "border:1px solid black;">
+        <br>
+        <table style = "margin: 0 auto;border:2px solid black ;text-align:center;">
+          <tr  style = "text-align:center;height:50px;">
+          <th colspan = "4" style = "border:2px solid black; color:orangered;font-size: large;">MOSTLY OCCURING DISEASES</th>
+          </tr>
+          <tr>
+            <th style = "border:2px solid black ;text-align:center;">Disease Name</th>
+            <th style = "border:2px solid black ;text-align:center;">Count of your infection</th>
+          </tr>
+          {% for i,j in count_diseases.items() %}
+            <td style = "border:2px solid black ;text-align:center;">{{ i }}</td>
+            <td style = "border:2px solid black ;text-align:center;">{{ j }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        <br>
+        <hr style = "border:1px solid black;"><br>
+        <table style = "margin: 0 auto;border:2px solid black ;text-align:center;">
+          <tr>
+            <tr  style = "text-align:center;height:50px;">
+              <th colspan = "4" style = "border:2px solid black; color:orangered;font-size: large;">FREQUENTLY OCCURING SYMPTOMS</th>
+            </tr>
+            <th style = "border:2px solid black ;text-align:center;">Symptom Name</th>
+            <th style = "border:2px solid black ;text-align:center;">Count of your infection</th>
+          </tr>
+          {% for i,j in count_symps.items() %}
+            {% if(i!="") %}
+            <td style = "border:2px solid black ;text-align:center;">{{ i }}</td>
+            <td style = "border:2px solid black ;text-align:center;">{{ j }}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </table>
+        <br>
+      </div>
+    </section>
+    <!--<h1 align = "center"> <b>Total Records: {{ total }} </h1>
+    <h1 align = "center"> {{ count_diseases }}</h1>
+    <h1 align = "center"> {{ count_symps }}</h1>
+    -->
+</body>
+</html>

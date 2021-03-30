@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Care from COVID-19</title>
+    <script>
+      var stateObject = {
+      "India": { "Delhi": ["new Delhi", "North Delhi"],
+      "Andaman/Nicobar Islands":["Port Blair","Interview Island"],
+      "Andhra Pradesh":["Hyderabad","Amravati"],
+      "Arunachal Praddesh":["Dibang Valley","Siang district"],
+      "Assam":["Bijali","Biska"],
+      "Bihar":["Patna","Aurangabad"],
+      "Chandigarh":["Amritsar"],
+      "Chhattisgarh":["Balrampur"],
+      "Dadra/Nagar Haveli":["Silvassa"],
+      "Daman/Diu":["Daman","Diu"],
+      "Goa": ["North Goa", "South Goa"],
+      "Gujarat":["Ahmedabad","Surat"],
+      "Haryana":["Ambala","Panipat"],
+      "Himachal Pradesh":["Shimla","Kullu"],
+      "Jammu/Kashmir|Jharkhand":["Anantnag","Jammu"],
+      "Jharkhand":["Chatra","Deoghar"],
+      "Karnataka":["Bangalore","Bijapur"],
+      "Kerala": ["Thiruvananthapuram", "Palakkad"],
+      "Ladakh":["Leh","Kargil"],
+      "Lakshadweep":["Minicoy","Kavaratti"],
+      "Madhya Pradesh": ["Indore","Bhopal","Jabalpur","Ratlam","Dewas","Ujjain"],
+      "Maharashtra": ["Mumbai","Pune"],
+      "Manipur":["Chandel","Dispur","Imphal"],
+      "Meghalaya":["Shilong"],
+      "Mizoram":["Champhai","Mamit"],
+      "Nagaland":["Koohima","Dimapur"],
+      "Orissa":["Angul","Balasor"],
+      "Pondicherry":["Mahe","Karaikal"],
+      "Punjab":["Amritsar","Jalandhar"],
+      "Rajasthan":["Jaipur","Ajmer"],
+      "Sikkim":["Gangtok"],
+      "Tamil Nadu":["Chennai","Coimbatore"],
+      "Telangana":["Hyderabad","Adilabad"],
+      "Tripura":["Agartala","Gomati"],
+      "Uttaranchal":["Chamoli","Dehradun"],
+      "Uttar Pradesh":["Agra","Lucknow"],
+      "West Bengal":["Kolkata","Darjeeling"]
+      },
+      "Australia": {
+      "South Australia": ["Dunstan", "Mitchell"],
+      "Victoria": ["Altona", "Euroa"]
+      }, "Canada": {
+      "Alberta": ["Acadia", "Bighorn"],
+      "Columbia": ["Washington", ""]
+      },
+      }
+      window.onload = function () {
+      var countySel = document.getElementById("countySel"),
+      stateSel = document.getElementById("stateSel"),
+      districtSel = document.getElementById("districtSel");
+      for (var country in stateObject) {
+      countySel.options[countySel.options.length] = new Option(country, country);
+      }
+      countySel.onchange = function () {
+      stateSel.length = 1; // remove all options bar first
+      districtSel.length = 1; // remove all options bar first
+      if (this.selectedIndex < 1) return; // done
+      for (var state in stateObject[this.value]) {
+      stateSel.options[stateSel.options.length] = new Option(state, state);
+      }
+      }
+      countySel.onchange(); // reset in case page is reloaded
+      stateSel.onchange = function () {
+      districtSel.length = 1; // remove all options bar first
+      if (this.selectedIndex < 1) return; // done
+      var district = stateObject[countySel.value][this.value];
+      for (var i = 0; i < district.length; i++) {
+      districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
+      }
+      }
+      }
+      </script>
+</head>
+<body>
+  <header class="text-gray-700 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-white-500 rounded-full" viewBox="0 0 24 24">
+            <image href="/static/favicon.png" x="0" y="0" height="24px" width="24px"/>
+        </svg>
+        <span class="ml-3 text-xl">Care from COVID-19</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-gray-900" href="/">Home</a>
+        <a class="mr-5 hover:text-gray-900" href="/dologin">Sign in</a>
+        <a class="mr-5 hover:text-gray-900" href="/contact_us">Contact us</a>
+        <a class="mr-5 hover:text-orange-500" href="/logout">Logout</a>
+      </nav>
+      
+    </div>
+  </header>
+    <section class="text-gray-700 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+          <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+            <h1 class="title-font font-medium text-3xl text-gray-900">Sign up</h1>
+            <p class="leading-relaxed mt-4">Enter required details for accurate response from the website</p>
+            <a href = "{{url_for('dologin')}}" style = "color:orangered">already have an account?</a>
+          </div>
+          <div class="lg:w-2/6 md:w-1/2 bg-orange-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <h2 class="text-gray-900 text-lg font-medium title-font mb-5" align = "center">Enter required details</h2>
+              <form action="{{ url_for('register') }}" method="post" autocomplete="off" align = "center">
+                <div class="msg">{{ msg }}</div>   
+                <div class=" bg-orange-200 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                  <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4" placeholder="Full Name" type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class=" bg-orange-200 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                  <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email" id="email" name="email" required>
+                </div>
+                <div class=" bg-orange-200 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                  <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4" placeholder="Password" type="password" id="password" name="password" required>
+                </div>
+                <div class=" bg-orange-200 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                  <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4" placeholder="Phone" type="number" id="phone" name = "phone" required>
+                </div>
+                <div class=" bg-orange-200 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                <h6 class = "text-darkslategrey-900">Gender:
+                <input type="radio" id="male" name="gender" value="male">
+                <label style = "color:darkgrey" for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label style = "color:darkgrey" for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other">
+                <label style = "color:darkgrey" for="other">Other</label></h6>
+                </div><br>
+                  <select class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0" name="state" id="countySel"><option value="" selected="selected">--Select Country--</option></select>
+                  <select class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0" name="countrya" id="stateSel"><option value="" selected="selected">--Please select country first--</option></select>
+                  <select class="bg-white rounded border border-gray-400 focus:outline-none focus:border-orange-500 text-base px-4 py-2 mb-4 rounded-lg p-1 flex flex-col md:ml-auto w-full mt-10 md:mt-0" name="district" id="districtSel"><option value="" selected="selected">--Please select state first--</option></select>
+                <button class="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Signup</button>
+              </form>
+            <p class="text-xs text-gray-500 mt-3" align = "center">We understand your concern for the privacy</p>
+          </div>
+  
+        </div>
+      </section>
+
+      
+</body>
+</html>
